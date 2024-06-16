@@ -1,0 +1,12 @@
+spring:
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/postgresflux?schema=anime
+    username: postgresflux
+    password: password
+    driver-class-name: org.postgresql.Driver
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          r2dbc: DEBUG

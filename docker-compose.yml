@@ -1,0 +1,23 @@
+version: '3.5'
+
+services:
+  postgres_webFlux:
+    container_name: postgres_webFlux
+    image: postgres:15.6
+    environment:
+      POSTGRES_USER: postgresflux
+      POSTGRES_PASSWORD: password
+    volumes:
+      - webflux_data:/var/lib/postgres/data
+    ports:
+      - "5432:5432"
+    networks:
+      - postgres
+    restart: unless-stopped
+
+networks:
+  postgres:
+    driver: bridge
+
+volumes:
+  webflux_data:
