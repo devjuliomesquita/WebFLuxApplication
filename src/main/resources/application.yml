@@ -1,12 +1,14 @@
 spring:
+  application:
+    name: r2dbc-test
   r2dbc:
-    url: r2dbc:postgresql://localhost:5432/postgresflux?schema=anime
-    username: postgresflux
-    password: password
-    driver-class-name: org.postgresql.Driver
-logging:
-  level:
-    org:
-      springframework:
-        data:
-          r2dbc: DEBUG
+    username: local
+    password: local
+    url: r2dbc:postgresql://localhost:8082/test-webflux
+  flyway:
+    url: jdbc:postgresql://localhost:8082/test-webflux
+    locations: classpath:db/postgres/migration
+    user: local
+    password: local
+  main:
+    allow-bean-definition-overriding: true
