@@ -15,6 +15,8 @@ import java.util.List;
 
 @Configuration
 public class SwaggerConfig {
+    public SwaggerConfig() {
+    }
 
     @Bean
     public OpenAPI customOpenAPI() {
@@ -32,9 +34,9 @@ public class SwaggerConfig {
                         )
                         .termsOfService("https://github.com/devjuliomesquita/WebFLuxApplication")
                         .contact(new Contact().name("Júlio Mesquita").email("juliocesarmcamilo@gmail.com").url("https://github.com/devjuliomesquita"))
-                        .license(new License().name("MIT").url(""))
+                        .license(new License().name("MIT License").url("https://github.com/devjuliomesquita/WebFLuxApplication/blob/main/LICENSE"))
                 )
-                .servers(new ArrayList<>(List.of(new Server().description("Ambiente LOCAL").url("http://localhost:8080/api")))
+                .servers(new ArrayList<>(List.of(new Server().description("Ambiente LOCAL").url("http://localhost:8080")))
                 )
                 .externalDocs(new ExternalDocumentation()
                         .description("Reactive Streams")

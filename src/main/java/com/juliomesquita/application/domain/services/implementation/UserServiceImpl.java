@@ -21,13 +21,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Mono<UserEntity> save(UserRequest request) {
-        return this.userRepository.save(
-                UserEntity.builder()
-                        .id(UUID.randomUUID())
-                        .email(request.email())
-                        .active(true)
-                        .build()
-        );
+        UserEntity entity = UserEntity.builder()
+//                .id(UUID.randomUUID())
+                .email(request.email())
+                .active(true)
+                .build();
+        Mono<UserEntity> save = this.userRepository.save(entity);
+        return save;
     }
 
     @Override

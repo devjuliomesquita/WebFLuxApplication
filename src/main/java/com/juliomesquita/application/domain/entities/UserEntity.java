@@ -21,7 +21,6 @@ import java.util.UUID;
 @Builder
 public class UserEntity {
     @Id
-    @NotBlank
     @Column(value = "user_id")
     private UUID id;
 

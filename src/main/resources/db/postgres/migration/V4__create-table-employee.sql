@@ -1,5 +1,6 @@
+create extension if not exists "uuid-ossp";
 create table if not exists tb_employees(
-    "employee_id" uuid primary key not null,
+    "employee_id" uuid primary key default uuid_generate_v4(),
     "employee_name" varchar(255) not null,
     "employee_age" int,
     "employee_user_id" uuid,
