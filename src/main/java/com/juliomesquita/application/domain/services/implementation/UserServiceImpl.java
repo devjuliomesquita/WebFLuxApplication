@@ -21,13 +21,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Mono<UserEntity> save(UserRequest request) {
-        UserEntity entity = UserEntity.builder()
-//                .id(UUID.randomUUID())
+        return this.userRepository.save(UserEntity.builder()
                 .email(request.email())
                 .active(true)
-                .build();
-        Mono<UserEntity> save = this.userRepository.save(entity);
-        return save;
+                .build());
     }
 
     @Override
@@ -58,8 +55,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void delete(UUID uuid) {
-        this.userRepository.deleteById(uuid);
+    public Mono<UserEntity> delete(UUID uuid) {
+         return this.userRepository.findById(uuid)
+                 .flatMap(userEntity -> {
+                    userEntity.setActive(false);
+                    return this.userRepository.save(userEntity);
+                 });
     }
 }
 

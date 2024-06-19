@@ -19,7 +19,7 @@ public class SwaggerConfig {
     }
 
     @Bean
-    public OpenAPI customOpenAPI() {
+    public OpenAPI openAPI() {
         final String apiTitle = String.format("%s API", StringUtils.capitalize("WebFlux Application"));
         return new OpenAPI()
                 .info(new Info().
@@ -30,8 +30,7 @@ public class SwaggerConfig {
                                 .append("Bs;ldkfj;sla")
                                 .append("\n\n")
                                 .append(".skdnf/alsk;")
-                                .toString()
-                        )
+                                .toString())
                         .termsOfService("https://github.com/devjuliomesquita/WebFLuxApplication")
                         .contact(new Contact().name("Júlio Mesquita").email("juliocesarmcamilo@gmail.com").url("https://github.com/devjuliomesquita"))
                         .license(new License().name("MIT License").url("https://github.com/devjuliomesquita/WebFLuxApplication/blob/main/LICENSE"))

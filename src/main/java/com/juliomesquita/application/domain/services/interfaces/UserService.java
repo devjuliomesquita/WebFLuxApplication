@@ -16,5 +16,5 @@ public interface UserService {
     Flux<UserEntity> findAll();
     Mono<Page<UserEntity>> findAllPageable(Pageable pageable);
     Mono<UserEntity> update(UUID uuid, UserRequest request);
-    void delete(UUID uuid);
+    Mono<UserEntity> delete(UUID uuid);
 }

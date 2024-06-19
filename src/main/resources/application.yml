@@ -12,9 +12,18 @@ spring:
     password: local
   main:
     allow-bean-definition-overriding: true
+
+#    Documentação
 springdoc:
   swagger-ui:
+    path: /swagger-ui.html
     tags-sorter: alpha
     doc-expansion: none
     operations-sorter: alpha
     filter: true
+
+# Loges do banco e consultas
+logging:
+  level:
+    io.r2dbc.postgresql.QUERY: DEBUG
+    io.r2dbc.postgresql.PARAM: DEBUG
