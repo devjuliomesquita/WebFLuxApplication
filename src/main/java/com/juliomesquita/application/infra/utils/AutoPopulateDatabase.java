@@ -40,11 +40,9 @@ public class AutoPopulateDatabase implements CommandLineRunner {
                     .age(faker.number().numberBetween(16, 100))
                     .build());
         }
-//        Mono<UserEntity> save = this.userRepository.save(userEntities.get(0));
-//
-//        employeeEntities.forEach(this.employeeRepository::save);
-        this.userRepository.saveAll(userEntities).subscribe();
-        this.employeeRepository.saveAll(employeeEntities).subscribe();
+
+//        this.userRepository.saveAll(userEntities).subscribe();
+//        this.employeeRepository.saveAll(employeeEntities).subscribe();
         log.info("Usuários e Colaboradores criados.");
     }
 
